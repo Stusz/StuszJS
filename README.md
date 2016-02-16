@@ -1,2 +1,4 @@
-# StuszJS 为 Stusz·APP 量身
+# StuszJS 助力 Stusz·APP 应用开发
+
+概述
 Stusz·APP JS
