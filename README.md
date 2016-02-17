@@ -1,6 +1,8 @@
-# StuszJS 助力 Stusz·APP 应用开发
+# Stusz JS-SDK DOCUMENT & DEMO
 ====
 
-##
+## Overview
 
-StuszJS是一套配合Stusz·APP平台使用的调用接口，由StuszTeam亲自提供，可利用它开发Stusz·APP内的小应用。
+Stusz JS-SDK (JavaScript SDK) is a Stusz·APP-based WebAPP development toolkit provided by the StuszTeam for Stusz·APP-based WebAPP developers.
+
+Through the Stusz JS-SDK, WebAPP developers can easily use native mobile features including getting user information, pulish topics, reply topics, browse topics detail and location from within Stusz. Developers may also provide Stusz users with a better WebAPP user experience by directly tapping into Stusz-specific features such as sharing, QR code scanning, images preview and calling WeChat payments.
