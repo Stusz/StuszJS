@@ -8,6 +8,12 @@ Through the Stusz JS-SDK, WebAPP developers can easily use native mobile feature
 
 This document describes how to use the Stusz JS-SDK and contains relevant precautions for Stusz·APP-based WebAPP developers.
 
+## View Stusz JS demo
+You can get a simple demo in Github: 
+```
+https://github.com/iStusz/js
+```
+
 ## Steps for Using the JS-SDK
 
 #### Step 1: Register an Stusz account
@@ -27,18 +33,17 @@ http://www.stusz.com/app/bridge/StuszJS.js.
 All pages requiring the code must be add between `<head>` and `</head>`.
 ```
 <script> 
-window.s_alert = window.alert;   //临时保存 
+window.s_alert = window.alert;
     window.alert = function(str) 
         { 
                 return; 
-                //什么事也不做，等于屏蔽了它 
+                //Shelter
         } 
-        window.alert( "已无法弹出"); 
-        alert( "已无法弹出"); 
-        //window.alert   =   window.s_alert; 
-		//若需恢复执行上行即可
+        window.alert("Can not show"); 
+        alert("Can not show"); 
 </script>
 ```
+Note: If you need to use `alert` function, please replaced by `window.s_alert()`
 
 #### Step 4: Calling Stusz JS
 All pages requiring the code must be add between `<body>` and `</body>`.
