@@ -216,6 +216,4 @@ https://github.com/iStusz/js
 ```
 
 ## Legal Statement
-Copyright Shenzhen Stusz Technology Co.,Ltd.
-
-All Rights Reserved.
+Shenzhen Stusz Technology Co.,Ltd. All Rights Reserved.
