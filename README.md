@@ -4,15 +4,9 @@
 
 Stusz JS-SDK (JavaScript SDK) is a Stusz·APP-based WebAPP development toolkit provided by the StuszTeam for Stusz·APP-based WebAPP developers.
 
-Through the Stusz JS-SDK, WebAPP developers can easily use native mobile features including getting user information, pulish topics, reply topics, browse topics detail and location from within Stusz. Developers may also provide Stusz users with a better WebAPP user experience by directly tapping into Stusz-specific features such as sharing, QR code scanning, images preview and calling WeChat payments.
+Through the Stusz JS-SDK, WebAPP developers can easily use native mobile features including getting user information, pulish topics, reply topics, browse topics detail and location from within Stusz. Developers may also provide Stusz users with a better WebAPP user experience by directly tapping into Stusz-specific features such as sharing, QR code scanning, images preview and calling WeChat Payment.
 
 This document describes how to use the Stusz JS-SDK and contains relevant precautions for Stusz·APP-based WebAPP developers.
-
-## View Stusz JS demo
-You can get a simple demo in Github: 
-```
-https://github.com/iStusz/js
-```
 
 ## Steps for Using the JS-SDK
 
@@ -51,15 +45,15 @@ All pages requiring the code must be add between `<body>` and `</body>`.
 connectAppbymeJavascriptBridge(function(bridge){
                                
     bridge.initShake(3000,function(){
-        alert('2.0 Yaoyiyao');
+        window.s_alert('2.0 Yaoyiyao');
     });
       
     bridge.setShareCallBack(function(data){
-        alert(data.errInfo);
+        window.s_alert(data.errInfo);
     });
                                
     bridge.setScanCallBack(function(data){
-        alert(data.errInfo + ' ' +data.url);
+        window.s_alert(data.errInfo + ' ' +data.url);
     });
     
 });
@@ -91,14 +85,13 @@ function login(){
 #### API for logging out present account
 ```
 function logout(){
-    //注销
     AppbymeJavascriptBridge.logout(function(data){
     });
 }
 ```
 
-#### API for getting user information
-Return data in JSON. 
+#### API for obtaining user information
+API will return data in JSON. 
 ```
 function userInfo(){
     AppbymeJavascriptBridge.getUserInfo(function(data){
@@ -142,7 +135,7 @@ function pulishTopic(){
 ```
 function replyTopic(){
     AppbymeJavascriptBridge.replyTopic(function(data){
-        alert(data.errInfo);
+         alert(data.errInfo);
     },529,36,61);
     //replyTopic(callBack,topicId,referenceTopicId,boradId)
 }
@@ -154,7 +147,75 @@ function replyTopic(){
 ```
 function share(){
     AppbymeJavascriptBridge.share("Sharing title", "Sharing description", "Sharing link", function(data){
-         alert(data.errInfo);
+         window.s_alert(data.errInfo);
     });
 }
 ```
+
+## Intelligent API
+
+#### API for obtaining geographic location
+```
+function getLocation(){
+    AppbymeJavascriptBridge.getLocation(function(data){
+         window.s_alert(JSON.stringify(data));
+    });
+}
+```
+
+#### API for obtaining equipment information
+```
+function getVersion(){
+    AppbymeJavascriptBridge.getVersion(function(data){
+        window.s_alert(JSON.stringify(data));
+    });
+}
+```
+
+#### API for obtaining encryption mode
+```
+function encrypt(str){
+    AppbymeJavascriptBridge.encrypt(function(data){
+        alert(JSON.stringify(data));
+    },str);
+}
+```
+
+## Other API
+
+#### API for calling images preview
+```
+function imagePreview(){
+    var imageArray=['http://www.stusz.com/data/attachment/forum/201512/21/184924rdpmjmmpxz75pjh5.jpeg','http://www.stusz.com/data/attachment/forum/201512/21/184811dotgtrtutrug7v0u.jpg'];
+    //imagePreview(imageArray, position);
+    AppbymeJavascriptBridge.imagePreview(imageArray,1);
+}
+```
+
+#### API for closing appointed webpage
+```
+function closeActivity(){
+    AppbymeJavascriptBridge.closeActivity();
+}
+```
+
+#### API for calling WeChat Payment
+Key Account Only, please contact: 
+```
+hy@stusz.com, Mr. Huang
+```
+
+## Sample code & Demo webpage
+Demo webpage URL: 
+```
+http://www.stusz.com/app/bridge/demo.html
+```
+Sample code in Github: 
+```
+https://github.com/iStusz/js
+```
+
+## Legal Statement
+Copyright Shenzhen Stusz Technology Co.,Ltd.
+
+All Rights Reserved.
