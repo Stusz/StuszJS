@@ -26,7 +26,7 @@ Organization developers please contact us, we will tell you how to register: hy@
 #### Step 2: Import the Stusz JS Library File
 Import the following JS library file in the page where the Stusz JS API is to be called: 
 ```
-http://www.stusz.com/app/bridge/StuszJS.js.
+http://www.stusz.com/app/bridge/StuszJS.js
 ```
 
 #### Step 3: Shelter alert function for avoid special BUG
@@ -75,5 +75,86 @@ function StuszAppWeb(){
     }else{
         window.s_alert("Not Stusz·APP");
     }
+}
+```
+
+## User API
+
+#### API for calling page of logging in
+```
+function login(){
+    AppbymeJavascriptBridge.login(function(data){
+    });
+}
+```
+
+#### API for logging out present account
+```
+function logout(){
+    //注销
+    AppbymeJavascriptBridge.logout(function(data){
+    });
+}
+```
+
+#### API for getting user information
+Return data in JSON. 
+```
+function userInfo(){
+    AppbymeJavascriptBridge.getUserInfo(function(data){
+	     window.s_alert(JSON.stringify(data));
+    });
+}
+```
+
+#### API for calling appointed user homepage
+```
+function userCenter(){
+    AppbymeJavascriptBridge.getUserInfo(function(data){
+    });
+    AppbymeJavascriptBridge.userCenter(userId);  //userId is a number
+}
+```
+
+## Topic API
+
+#### API for calling appointed topic detail
+```
+function topicDetail(){
+    AppbymeJavascriptBridge.topicDetail(529,22,1);
+    //type: Uniform fill in "1"
+    //topicDetail(topicId,boardId,type)
+}
+```
+
+#### API for calling pulish new topic
+```
+function pulishTopic(){
+    AppbymeJavascriptBridge.pulishTopic(function(data){
+        alert(data.errInfo);
+    },1,61,'1',1);
+    //type: 1:Common 2:Classified 3:Vote
+    //pulishTopic(callBack,type,boardId,boardName,classifyId,isTitle)
+}
+```
+
+#### API for calling reply appointed topic
+```
+function replyTopic(){
+    AppbymeJavascriptBridge.replyTopic(function(data){
+        alert(data.errInfo);
+    },529,36,61);
+    //replyTopic(callBack,topicId,referenceTopicId,boradId)
+}
+```
+
+## Sharing API
+
+#### API for obtaining share status for "Share" and customizing sharing contents
+```
+function share(){
+    AppbymeJavascriptBridge.share("Sharing title", "Sharing description", "Sharing link", function(data){
+         alert(data.errInfo);
+    });
 }
 ```
